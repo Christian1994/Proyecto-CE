@@ -6,8 +6,8 @@ public class Principal {
 		Plantel univalleTeam = new Plantel();
 		univalleTeam.mostrarPlantel();
 		
-		// AlgoritmoGenetico ga = new AlgoritmoGenetico();
-		// ga.printCromosoma();
+		AlgoritmoGenetico ga = new AlgoritmoGenetico();
+		ga.printCromosoma();
 	}
 	
 }
