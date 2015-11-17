@@ -78,7 +78,7 @@ public class AlgoritmoGenetico {
 	
 	public void seleccion()
 	{
-		
+		/
 	}
 	
 	public void cruce()
