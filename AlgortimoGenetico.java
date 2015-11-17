@@ -51,11 +51,11 @@ public class AlgoritmoGenetico {
 	}
 	
 	// Método que genera la población de cromosomas. 100 cromosomas se generarán en este problema
-	public void generarPoblacion()
+	public void generarPoblacion(int tam)
 	{
 		System.out.println("\nPoblación: \n");
 		System.out.println("Nº\tCromosoma\t\tAdaptación");
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < tam; i++)
 		{
 			jugadores.clear();
 			generarCromosoma();
