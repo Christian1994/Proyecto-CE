@@ -65,8 +65,6 @@ public class AlgoritmoGenetico {
 	}
 	
 	// Método que retorna la adaptación de cada cromosoma
-	// Adaptación = A[0]+A[1]+A[2]+D[3]+D[4]+D[5] o
-	// Adaptación = (A[0]+A[1]+A[2]+D[3]+D[4]+D[5])/6 Pendiente escoger la adaptación
 	public double getAdaptacion()
 	{
 		adaptacion = 0;
