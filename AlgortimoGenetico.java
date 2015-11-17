@@ -5,7 +5,7 @@ public class AlgoritmoGenetico {
 	private Plantel plantel = new Plantel();
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>(6);	// Longitud del cromosoma: 6 jugadores (Formación titular del equipo de voleibol).
 	private ArrayList<Jugador> listaAux = new ArrayList<Jugador>(6);	// Lista auxiliar para asegurar la no repetición de los números enteros en el cromosoma.
-	private int adaptacion;
+	private double adaptacion;
 	
 	public AlgoritmoGenetico()
 	{
@@ -67,7 +67,7 @@ public class AlgoritmoGenetico {
 	// Método que retorna la adaptación de cada cromosoma
 	// Adaptación = A[0]+A[1]+A[2]+D[3]+D[4]+D[5] o
 	// Adaptación = (A[0]+A[1]+A[2]+D[3]+D[4]+D[5])/6 Pendiente escoger la adaptación
-	public int getAdaptacion()
+	public double getAdaptacion()
 	{
 		adaptacion = 0;
 		for(int i = 0; i < jugadores.size(); i++)
@@ -75,6 +75,26 @@ public class AlgoritmoGenetico {
 			if(i < 3){ adaptacion += jugadores.get(i).getAtaque(); }
 			else {adaptacion += jugadores.get(i).getDefensa();}
 		}
-		return adaptacion;
+		return adaptacion / 6;
+	}
+	
+	public void seleccion()
+	{
+		
+	}
+	
+	public void cruce()
+	{
+		
+	}
+	
+	public void mutacion()
+	{
+		
+	}
+	
+	public void reemplazo()
+	{
+		
 	}
 }
