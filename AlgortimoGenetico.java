@@ -79,7 +79,7 @@ public class AlgoritmoGenetico {
 		return adaptacion / 6;
 	}
 	
-	// Método que realiza la selección por torneo
+	// Método que realiza la selección por torneo. Pendiente a mejorar
 	public void seleccion()
 	{
 		// Selección de primer cromosoma de forma aleatoria
