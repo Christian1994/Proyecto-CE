@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class AlgoritmoGenetico {
 	
-	private ArrayList<Cromosoma> poblacion = new ArrayList<Cromosoma>();	// Población de cromosomas (Opciones de formación titular)
+	private ArrayList<Cromosoma> poblacion = new ArrayList<Cromosoma>();	// PoblaciÃ³n de cromosomas (Opciones de formaciÃ³n titular)
 	private ArrayList<Cromosoma> matingPool = new ArrayList<Cromosoma>();	// Mating pool
 	
 	// Constructor
@@ -18,8 +18,9 @@ public class AlgoritmoGenetico {
 		System.out.println("Nº\tCromosoma\t\tAdaptación");
 		for(int i = 0; i < tam; i++)
 		{
-			poblacion.add(new Cromosoma(i));
-			System.out.print("\t\t" + poblacion.get(i).getAdaptacion());
+			System.out.print((i + 1) + "\t");
+			poblacion.add(new Cromosoma());
+			System.out.print("\t\t" + poblacion.get(i).getAdaptacion() + "\n");
 		}
 		
 		System.out.print("\n\nTamaño de población: " + poblacion.size());
@@ -40,7 +41,7 @@ public class AlgoritmoGenetico {
 			int i2 = (int)Math.floor(poblacion.size() * Math.random());
 			Cromosoma crom2 = poblacion.get(i2);
 			
-			// El que tenga la mejor aptitud, éste se enviará al mating pool
+			// El que tenga la mejor aptitud, éste se enviará¡ al mating pool
 			if(crom1.getAdaptacion() >= crom2.getAdaptacion())
 			{
 				matingPool.add(crom1);
@@ -61,8 +62,9 @@ public class AlgoritmoGenetico {
 		System.out.println("\nNº\tCromosoma\tAdaptación");
 		for(int i = 0; i < matingPool.size(); i++)
 		{
-			matingPool.get(i).printCromosoma(i);
-			System.out.print("\t\t" + matingPool.get(i).getAdaptacion());
+			System.out.print((i + 1) + "\t");
+			matingPool.get(i).printCromosoma();
+			System.out.print("\t\t" + matingPool.get(i).getAdaptacion() + "\n");
 		}
 		
 		System.out.print("\n\nTamaño del mating pool: " + matingPool.size());
