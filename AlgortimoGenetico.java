@@ -19,11 +19,12 @@ public class AlgoritmoGenetico {
 		System.out.println("Nº\tCromosoma\t\tAdaptación");
 		for(int i = 0; i < tam; i++)
 		{
-			poblacion.add(new Cromosoma(i));
-			System.out.print("\t\t" + poblacion.get(i).getAdaptacion());
+			System.out.print((i + 1) + "\t");
+			poblacion.add(new Cromosoma());
+			System.out.print("\t\t" + poblacion.get(i).getAdaptacion() + "\n");
 		}
 		
-		System.out.print("\n\nTamaño de población: " + poblacion.size());
+		System.out.print("\nTamaño de población: " + poblacion.size());
 	}
 		
 	// Método que realiza la selección por torneo. 
@@ -62,11 +63,12 @@ public class AlgoritmoGenetico {
 		System.out.println("\nNº\tCromosoma\t\tAdaptación");
 		for(int i = 0; i < matingPool.size(); i++)
 		{
-			matingPool.get(i).printCromosoma(i);
-			System.out.print("\t\t" + matingPool.get(i).getAdaptacion());
+			System.out.print((i + 1) + "\t");
+			matingPool.get(i).printCromosoma();
+			System.out.print("\t\t" + matingPool.get(i).getAdaptacion() + "\n");
 		}
 		
-		System.out.print("\n\nTamaño del mating pool: " + matingPool.size());
+		System.out.print("\nTamaño del mating pool: " + matingPool.size());
 	}
 	
 	// Método que realiza cruce uniforme en codificación entera.
