@@ -8,10 +8,10 @@ public class Cromosoma {
 	private double adaptacion;
 	
 	// Constructor
-	public Cromosoma(int index)
+	public Cromosoma()
 	{
 		this.generarCromosoma();
-		this.printCromosoma(index);		// Se imprime el cromosoma
+		this.printCromosoma();		// Se imprime el cromosoma
 	}
 	
 	// Método que crea el cromosoma. La codificación del cromosoma será entera
@@ -41,17 +41,7 @@ public class Cromosoma {
 			}
 		}
 	}
-	
-	// Método que muestra el cromosoma ubicado en la posición de la población y/o del mating pool
-	public void printCromosoma(int pos)
-	{
-		System.out.print("\n" + (pos + 1) + "\t");
-		for(Jugador player : jugadores)
-		{
-			System.out.print(player.getNumero() + " ");
-		}
-	}
-	
+		
 	// Método que muestra el cromosoma
 	public void printCromosoma()
 	{
