@@ -40,10 +40,19 @@ public class Plantel {
 		equipo.add(p15);
 		equipo.add(p16);
 	}
+
+	public ArrayList<Jugador> getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(ArrayList<Jugador> equipo) {
+		this.equipo = equipo;
+	}
 	
 	public void mostrarPlantel()
 	{
-		System.out.println("Dorsal\tAtaque\tDefensa\t");
+		System.out.println("Equipo Voleibol UNIVALLE");
+		System.out.println("\nDorsal\tAtaque\tDefensa\t");
 		for(int i = 0; i < equipo.size(); i++)
 		{
 			System.out.print(equipo.get(i).getNumero() + "\t" + 
