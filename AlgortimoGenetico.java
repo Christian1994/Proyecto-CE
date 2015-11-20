@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 public class AlgoritmoGenetico {
 	
-	private ArrayList<Cromosoma> poblacion = new ArrayList<Cromosoma>();	// Población de cromosomas (Opciones de formación titular)
-	private ArrayList<Cromosoma> matingPool = new ArrayList<Cromosoma>();	// Mating pool
+	private ArrayList<Cromosoma> poblacion = new ArrayList<Cromosoma>();		// Población de cromosomas (Opciones de formación titular)
+	private ArrayList<Cromosoma> matingPool = new ArrayList<Cromosoma>();		// Mating pool
+	// private ArrayList<Cromosoma> nuevosCromosomas = new ArrayList<Cromosoma>();	// Población de nuevos cromosomas
 	
 	// Constructor
 	public AlgoritmoGenetico()
@@ -58,7 +59,7 @@ public class AlgoritmoGenetico {
 		
 		// Imprime todos los cromosomas enviados al mating pool
 		System.out.println("\n\nMating pool. Selección por torneo");
-		System.out.println("\nNº\tCromosoma\tAdaptación");
+		System.out.println("\nNº\tCromosoma\t\tAdaptación");
 		for(int i = 0; i < matingPool.size(); i++)
 		{
 			matingPool.get(i).printCromosoma(i);
@@ -68,9 +69,29 @@ public class AlgoritmoGenetico {
 		System.out.print("\n\nTamaño del mating pool: " + matingPool.size());
 	}
 	
+	// Método que realiza cruce uniforme en codificación entera.
 	public void cruce()
 	{
-		
+		//while(!matingPool.isEmpty())
+		//{
+			// Selección de primer cromosoma de forma aleatoria
+			int i1 = (int)Math.floor(matingPool.size() * Math.random());
+			Cromosoma crom1 = matingPool.get(i1);
+			matingPool.remove(i1);
+			
+			// Selección de segundo cromosoma de forma aleatoria
+			int i2 = (int)Math.floor(matingPool.size() * Math.random());
+			Cromosoma crom2 = matingPool.get(i2);
+			matingPool.remove(i2);
+
+			System.out.print("\n\nPareja de cromosomas seleccionada\n\n");
+			crom1.printCromosoma();
+			System.out.print("\n");
+			crom2.printCromosoma();
+			
+			System.out.print("\n\nTamaño del mating pool: " + matingPool.size());
+			
+			// Comparación de genes entre padres
 	}
 	
 	public void mutacion()
