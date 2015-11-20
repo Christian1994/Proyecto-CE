@@ -42,7 +42,7 @@ public class Cromosoma {
 		}
 	}
 	
-	// Método que muestra el cromosoma generado
+	// Método que muestra el cromosoma ubicado en la posición de la población y/o del mating pool
 	public void printCromosoma(int pos)
 	{
 		System.out.print("\n" + (pos + 1) + "\t");
@@ -50,6 +50,15 @@ public class Cromosoma {
 		{
 			System.out.print(player.getNumero() + " ");
 		}
+	}
+	
+	// Método que muestra el cromosoma
+	public void printCromosoma()
+	{
+		for(Jugador player : jugadores)
+		{
+			System.out.print(player.getNumero() + " ");
+		}		
 	}
 	
 	// Método que retorna la adaptación de cada cromosoma
