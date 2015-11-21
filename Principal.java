@@ -9,9 +9,10 @@ public class Principal {
 		AlgoritmoGenetico ga = new AlgoritmoGenetico();
 		ga.generarPoblacion(100);		// Población de 100 individuos
 		ga.seleccion();
-		// ga.cruce();
+		ga.cruce();
 		// ga.mutacion();
 		// ga.reemplazo();
 	}
 	
 }
+
