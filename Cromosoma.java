@@ -14,6 +14,11 @@ public class Cromosoma {
 		this.printCromosoma();		// Se imprime el cromosoma
 	}
 	
+	public ArrayList<Jugador> getJugadores()
+	{
+		return jugadores;
+	}
+	
 	// Método que crea el cromosoma. La codificación del cromosoma será entera
 	public void generarCromosoma()
 	{
