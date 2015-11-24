@@ -10,8 +10,7 @@ public class Cromosoma {
 	// Constructor
 	public Cromosoma()
 	{
-		this.generarCromosoma();
-		this.printCromosoma();		// Se imprime el cromosoma
+
 	}
 	
 	// Método que crea el cromosoma. La codificación del cromosoma será entera
