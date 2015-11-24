@@ -10,8 +10,12 @@ public class Cromosoma {
 	// Constructor
 	public Cromosoma()
 	{
-		this.generarCromosoma();
-		this.printCromosoma();		// Se imprime el cromosoma
+
+	}
+	
+	public ArrayList<Jugador> getJugadores()
+	{
+		return jugadores;
 	}
 	
 	// Método que crea el cromosoma. La codificación del cromosoma será entera
