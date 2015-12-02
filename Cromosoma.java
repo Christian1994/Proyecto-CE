@@ -13,6 +13,11 @@ public class Cromosoma {
 
 	}
 	
+	public ArrayList<Jugador> getJugadores()
+	{
+		return jugadores;
+	}
+	
 	// Método que crea el cromosoma. La codificación del cromosoma será entera
 	public void generarCromosoma()
 	{
