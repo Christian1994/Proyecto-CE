@@ -13,16 +13,21 @@ public class Cromosoma {
 
 	}
 	
+	public ArrayList<Jugador> getJugadores()
+	{
+		return jugadores;
+	}
+	
 	// Método que crea el cromosoma. La codificación del cromosoma será entera
 	public void generarCromosoma()
 	{
 		// Creamos los genes (jugadores) que conformarán el cromosoma
-		jugadores.add(plantel.getEquipo().get((int)Math.floor(16 * Math.random())));
-		jugadores.add(plantel.getEquipo().get((int)Math.floor(16 * Math.random())));
-		jugadores.add(plantel.getEquipo().get((int)Math.floor(16 * Math.random())));
-		jugadores.add(plantel.getEquipo().get((int)Math.floor(16 * Math.random())));
-		jugadores.add(plantel.getEquipo().get((int)Math.floor(16 * Math.random())));
-		jugadores.add(plantel.getEquipo().get((int)Math.floor(16 * Math.random())));
+		jugadores.add(plantel.getEquipo().get((int)Math.floor(20 * Math.random())));
+		jugadores.add(plantel.getEquipo().get((int)Math.floor(20 * Math.random())));
+		jugadores.add(plantel.getEquipo().get((int)Math.floor(20 * Math.random())));
+		jugadores.add(plantel.getEquipo().get((int)Math.floor(20 * Math.random())));
+		jugadores.add(plantel.getEquipo().get((int)Math.floor(20 * Math.random())));
+		jugadores.add(plantel.getEquipo().get((int)Math.floor(20 * Math.random())));
 
 		listaAux = jugadores;			// Se asigna la formación titular a la lista auxiliar para asegurar la no repetición de los genes (jugadores).
 		
