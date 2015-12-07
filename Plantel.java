@@ -2,26 +2,30 @@ import java.util.ArrayList;
 
 public class Plantel {
 	
-	private ArrayList<Jugador> equipo = new ArrayList<Jugador>(16);
+	private ArrayList<Jugador> equipo = new ArrayList<Jugador>(20);
 	
 	public Plantel()
 	{
-		Jugador p1 = new Jugador(1, 60, 88);
-		Jugador p2 = new Jugador(2, 75, 63);
-		Jugador p3 = new Jugador(3, 81, 75);
-		Jugador p4 = new Jugador(4, 68, 92);
-		Jugador p5 = new Jugador(5, 72, 87);
-		Jugador p6 = new Jugador(6, 71, 82);
-		Jugador p7 = new Jugador(7, 83, 92);
-		Jugador p8 = new Jugador(8, 61, 80);
-		Jugador p9 = new Jugador(9, 91, 83);
-		Jugador p10 = new Jugador(10, 78, 85);
-		Jugador p11 = new Jugador(11, 90, 62);
-		Jugador p12 = new Jugador(12, 81, 58);
-		Jugador p13 = new Jugador(13, 62, 89);
-		Jugador p14 = new Jugador(14, 95, 61);
-		Jugador p15 = new Jugador(15, 79, 74);
+		Jugador p1 = new Jugador(1, 50, 80);
+		Jugador p2 = new Jugador(2, 72, 94);
+		Jugador p3 = new Jugador(3, 83, 65);
+		Jugador p4 = new Jugador(4, 65, 92);
+		Jugador p5 = new Jugador(5, 70, 87);
+		Jugador p6 = new Jugador(6, 81, 62);
+		Jugador p7 = new Jugador(7, 63, 82);
+		Jugador p8 = new Jugador(8, 81, 60);
+		Jugador p9 = new Jugador(9, 92, 93);
+		Jugador p10 = new Jugador(10, 58, 75);
+		Jugador p11 = new Jugador(11, 90, 72);
+		Jugador p12 = new Jugador(12, 91, 58);
+		Jugador p13 = new Jugador(13, 82, 69);
+		Jugador p14 = new Jugador(14, 95, 78);
+		Jugador p15 = new Jugador(15, 59, 64);
 		Jugador p16 = new Jugador(16, 93, 90);
+		Jugador p17 = new Jugador(17, 55, 70);
+		Jugador p18 = new Jugador(18, 84, 56);
+		Jugador p19 = new Jugador(19, 52, 63);
+		Jugador p20 = new Jugador(20, 60, 82);
 		
 		equipo.add(p1);
 		equipo.add(p2);
@@ -39,6 +43,10 @@ public class Plantel {
 		equipo.add(p14);
 		equipo.add(p15);
 		equipo.add(p16);
+		equipo.add(p17);
+		equipo.add(p18);
+		equipo.add(p19);
+		equipo.add(p20);
 	}
 
 	public ArrayList<Jugador> getEquipo() {
