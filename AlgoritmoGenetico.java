@@ -4,7 +4,7 @@ public class AlgoritmoGenetico {
 	
 	private ArrayList<Cromosoma> poblacion = new ArrayList<Cromosoma>();	// Población de cromosomas (Opciones de formación titular)
 	private ArrayList<Cromosoma> matingPool = new ArrayList<Cromosoma>();	// Mating pool
-	private ArrayList<Cromosoma> mejores = new ArrayList<Cromosoma>();		// Los mejores cromosomas de cada generación
+	private ArrayList<Double> mejoresAdapt = new ArrayList<Double>();		// Las mejores adaptaciones de cada generación
 	private Plantel plantel = new Plantel();
 	
 	// Constructor
@@ -12,12 +12,7 @@ public class AlgoritmoGenetico {
 	{
 
 	}
-	
-	public ArrayList<Cromosoma> getMejores()
-	{
-		return mejores;
-	}
-	
+
 	// Método que genera la población de cromosomas con su aptitud. 100 cromosomas se generarán en este problema
 	public void generarPoblacion(int tam)
 	{
@@ -62,65 +57,26 @@ public class AlgoritmoGenetico {
 			{
 				matingPool.add(crom2);
 			}
-			
-			/* System.out.print("\n\nÍndice 1: " + (i1 + 1) + " " + crom1.getAdaptacion());
-			System.out.print("\nÍndice 2: " + (i2 + 1) + " " + crom2.getAdaptacion());
-			System.out.print("\n\nTamaño del mating pool: " + matingPool.size());*/
 		}
-		
-		// Imprime todos los cromosomas enviados al mating pool
-		/* System.out.println("\n\nMating pool. Selección por torneo");
-		System.out.println("\nNº\tCromosoma\t\tAdaptación");
-		for(int i = 0; i < matingPool.size(); i++)
-		{
-			System.out.print((i + 1) + "\t");
-			matingPool.get(i).printCromosoma();
-			System.out.print("\t\t" + matingPool.get(i).getAdaptacion() + "\n");
-		}
-		
-		System.out.print("\nTamaño del mating pool: " + matingPool.size() + "\n"); */
 	}
 	
 	// Método que realiza la reproducción de cromosomas. Cruce y Mutación
 	public void reproduccion(double probCruce, double probMutacion)
 	{
-		// int indCruzados = 0;
 		for(int i = 0; i < matingPool.size(); i++)
 		{
 			double pC = Math.random();
 			if(pC < probCruce && i+1 < 60)
 			{
-				// System.out.print("\n\nProb: " + pC);
 				cruce(i, i+1);
 				i++;
-				// indCruzados++;
 			}
 		}
-
-		/*System.out.print("\n\nIndividuos cruzados: " + indCruzados);
-		
-		System.out.println("\n\nMating pool luego del cruce");
-		System.out.println("\nNº\tCromosoma\t\tAdaptación");
-		for(int i = 0; i < matingPool.size(); i++)
-		{
-			System.out.print((i + 1) + "\t");
-			matingPool.get(i).printCromosoma();
-			System.out.print("\t\t" + matingPool.get(i).getAdaptacion() + "\n");
-		}*/
 
 		for(int i = 0; i < matingPool.size(); i++)
 		{
 			mutacion(i, probMutacion);
 		}
-		
-		/* System.out.println("\n\nMating pool luego de la mutación");
-		System.out.println("\nNº\tCromosoma\t\tAdaptación");
-		for(int i = 0; i < matingPool.size(); i++)
-		{
-			System.out.print((i + 1) + "\t");
-			matingPool.get(i).printCromosoma();
-			System.out.print("\t\t" + matingPool.get(i).getAdaptacion() + "\n");
-		}*/
 	}
 	
 	// Método que realiza el cruce de cromosomas. Cruce uniforme forma aleatoria sin repetición de genes
@@ -165,30 +121,6 @@ public class AlgoritmoGenetico {
 				}
 			}
 		}
-		
-		/* Imprime los cromosomas padres y el cromosoma resultante del cruzamiento uniforme*/
-		/* if(!nuevaFormacion.isEmpty())
-		{
-			System.out.print("\nÍndice 1: " + (i1+1) + " -> ");
-			for(int i = 0; i < crom1.getJugadores().size(); i++)
-			{
-				System.out.print(crom1.getJugadores().get(i).getNumero() + " ");
-			}
-			
-			System.out.print("\n");
-			System.out.print("Índice 2: " + (i2+1) + " -> ");
-			for(int i = 0; i < crom2.getJugadores().size(); i++)
-			{
-				System.out.print(crom2.getJugadores().get(i).getNumero() + " ");
-			}
-			
-			System.out.print("\n");
-			System.out.print("Individuo cruzado -> ");
-			for(int i = 0; i < cruzado.getJugadores().size(); i++)
-			{
-				System.out.print(cruzado.getJugadores().get(i).getNumero() + " ");
-			}			
-		}*/
 		
 		/* Reemplazo: Como del operador de cruce uniforme sólo resulta en un descendiente, el padre con peor adaptación, será reemplazado por el 
 		 * cromosoma cruzado */
@@ -251,15 +183,6 @@ public class AlgoritmoGenetico {
 			poblacion.add(aleatorio, matingPool.get(i));
 		}
 		
-		/* System.out.println("\nNueva población de cromosomas:\n");
-		System.out.println("Nº\tCromosoma\t\tAdaptación");
-		for(int i = 0; i < poblacion.size(); i++)
-		{
-			System.out.print((i + 1) + "\t");
-			poblacion.get(i).printCromosoma();
-			System.out.print("\t\t" + poblacion.get(i).getAdaptacion() + "\n");
-		} */
-		
 		matingPool.clear();		// Vacío el mating pool para la próxima generación
 	}
 	
@@ -267,7 +190,7 @@ public class AlgoritmoGenetico {
 	public void evaluacion()
 	{
 		int pos = 0;
-		double mayor = poblacion.get(pos).getAdaptacion();
+		double mayor = poblacion.get(0).getAdaptacion();
 		for(int i = 1; i < poblacion.size(); i++)
 		{
 			if(poblacion.get(i).getAdaptacion() > mayor)
@@ -279,27 +202,26 @@ public class AlgoritmoGenetico {
 		
 		System.out.println("\nLa mejor formación posible es el cromosoma Nº " + (pos + 1));
 		poblacion.get(pos).printCromosoma();
-		System.out.print("\nCon puntaje de: " + poblacion.get(pos).getAdaptacion() + "\n");
+		System.out.print("\nCon puntaje de: " + mayor + "\n");
 		
-		mejores.add(poblacion.get(pos));	// Almaceno la mejor adaptación de la generación
+		mejoresAdapt.add(mayor);	// Almaceno la mejor adaptación de la generación
 	}
 	
 	// Método que determina el mejor cromosoma del AG
 	public void getMejorCromosoma()
 	{
 		int pos = 0;
-		double mayor = mejores.get(pos).getAdaptacion();
-		for(int i = 1; i < mejores.size(); i++)
+		double mayor = mejoresAdapt.get(0);
+		for(int i = 1; i < mejoresAdapt.size(); i++)
 		{
-			if(mejores.get(i).getAdaptacion() > mayor)
+			if(mejoresAdapt.get(i) > mayor)
 			{
-				mayor = mejores.get(i).getAdaptacion();
+				mayor = mejoresAdapt.get(i);
 				pos = i;
 			}
 		}
 		
 		System.out.println("\nLa mejor formación posible del AG es el de la generación Nº " + (pos + 1));
-		mejores.get(pos).printCromosoma();
-		System.out.print("\nCon puntaje de: " + mejores.get(pos).getAdaptacion() + "\n");
+		System.out.print("\nCon puntaje de: " + mejoresAdapt.get(pos) + "\n");
 	}
 }
